@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 EXE = ROOT / "trace_one_ray"
 OUT_DIR = ROOT / "output"
-TARGET_DIR = ROOT / "scan_fixed2"
+TARGET_DIR = ROOT / "scan_rays"
 
 # (alpha, beta, target filename)
 TARGETS = [
@@ -57,4 +57,4 @@ if __name__ == "__main__":
 
     for alpha, beta, name in TARGETS:
         run_one(alpha, beta, name)
-        print(f"saved scan_fixed2/{name}")
+        print(f"saved scan_rays/{name}")
