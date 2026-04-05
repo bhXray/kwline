@@ -4,32 +4,6 @@
 
 This project implements a custom XSPEC spectral model (`kwline` / `kwconv`) that computes relativistic iron line emission profiles from accretion disks around **Kerr-like wormholes**. Building upon the established Kerr black hole ray-tracing framework (YNOGK; Yang & Wang 2012), the code introduces a wormhole deformation parameter $\bar{\lambda}$ (`lambdaBar`) that smoothly interpolates between a standard Kerr black hole ($\bar{\lambda}=0$) and a traversable wormhole geometry. The model is designed for X-ray spectral fitting with NASA's XSPEC software, enabling observational constraints on wormhole spacetime parameters from iron K$\alpha$ line profiles.
 
-## Physics
-
-### Kerr-like Wormhole Metric
-
-The Kerr-like wormhole spacetime modifies the standard Kerr metric **only in the radial sector**. The time, cross, and azimuthal metric components ($g_{tt}$, $g_{t\varphi}$, $g_{\varphi\varphi}$) remain identical to Kerr, while $g_{rr}$ uses a modified lapse function:
-
-$$\hat{\Delta} = r^2 - 2(1+\bar{\lambda}^2)\,r + a^2$$
-
-where $a$ is the spin parameter and $\bar{\lambda}$ is the wormhole deformation parameter. The standard Kerr $\Delta_K = r^2 - 2r + a^2$ is recovered when $\bar{\lambda}=0$.
-
-
-### Geodesic Integration Strategy
-
-The code leverages the key property that **photon turning points are determined by the Kerr quartic** $R_K(r)=0$ (unchanged by $\bar{\lambda}$), while the wormhole modification enters through a **radial integral correction factor**:
-
-$$\sqrt{\frac{\Delta_K}{\hat{\Delta}}}$$
-
-This factor is applied via numerical quadrature (Simpson's rule) on top of the analytic Kerr geodesic solutions (Weierstrass elliptic functions), preserving both accuracy and computational efficiency.
-
-### Redshift Factor
-
-The gravitational + Doppler redshift $g$-factor uses the standard Kerr form since $g_{tt}$, $g_{t\varphi}$, and $g_{\varphi\varphi}$ are unmodified:
-
-$$g = \frac{\sqrt{-g_{tt} - 2\Omega\,g_{t\varphi} - \Omega^2\,g_{\varphi\varphi}}}{1 + \Omega\,\alpha\,\sin i}$$
-
-where $\Omega = 1/(r^{3/2}+a)$ is the Keplerian angular velocity and $\alpha$ is the horizontal impact parameter.
 
 ## Code Architecture
 
