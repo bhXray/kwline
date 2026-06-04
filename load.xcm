@@ -1,0 +1,40 @@
+if {[info exists env(CURRENT_LAMBDA)]} {
+    set lambda $env(CURRENT_LAMBDA)
+} else {
+    set lambda 0.9
+}
+
+initpackage kerrwhline lmodel.dat kerrwhline.f90
+lmod kerrwhline .
+
+model  kwline
+          0.998       0.01         -1    -0.9999     0.9999          1
+             75        0.1          1          5         89         89
+            6.4       0.01      1e-07     0.0001       1000       1000
+              3        0.1          0          1         10         15
+              3        0.1          0          1         10         15
+             15        0.1          1          1         50        100
+          1.237        0.1        -10        -10         50        100
+             30        0.1         10         15         75        100
+        $lambda       0.01          0          0          1          2
+              1       0.01          0          0      1e+20      1e+24
+
+bayes off
+cpd /xw
+plot model
+
+set energies [tcloutr energies]
+set len_chan [expr [llength $energies] - 1]
+set modvals [tcloutr modval]
+
+set fp [open "a0.998_inc75_gamma3_lambda${lambda}.dat" w+]
+puts $fp "#elow,ehigh,val"
+for {set i 0} {$i < $len_chan} {incr i} {
+  set e_lo [lindex $energies $i]
+  set e_hi [lindex $energies [expr $i + 1]]
+  set val  [lindex $modvals $i]
+  puts $fp "${e_lo},${e_hi},${val}"
+}
+close $fp
+
+exit
