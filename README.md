@@ -133,6 +133,9 @@ Spectral output files (`.dat`) contain two columns:
 
 ## Availability & Citation
 
+### Citation
+If you use kwline, kwconv, or any part of this project in your research, please cite the following paper:
+C. Liu, H. Siew, H.-X. Jiang, Y. Mizuno, and T. Zhu, Signature of iron line profile from a Kerr-like wormhole, Astronomy & Astrophysics (2026), DOI: 10.1051/0004-6361/202557027.
 
 ### Code Status
 The core ray-tracing engine and source code for amodules.f90 and kerrwhline.f90 are currently under embargo while the underlying research paper is undergoing peer review.
