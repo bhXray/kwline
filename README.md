@@ -133,16 +133,11 @@ Spectral output files (`.dat`) contain two columns:
 
 ## Availability & Citation
 
-### Citation
-If you use kwline, kwconv, or any part of this project in your research, please cite the following paper:
-C. Liu, H. Siew, H.-X. Jiang, Y. Mizuno, and T. Zhu, Signature of iron line profile from a Kerr-like wormhole, Astronomy & Astrophysics (2026), DOI: 10.1051/0004-6361/202557027.
+The complete source code for **kwline** and **kwconv** is available in this repository.
 
-### Code Status
-The core ray-tracing engine and source code for amodules.f90 and kerrwhline.f90 are currently under embargo while the underlying research paper is undergoing peer review.
+If you use this software or any part of its implementation in your research, please cite:
 
-### Future Release
-Full Source Code: Will be uploaded to this repository immediately following the formal acceptance of the paper.
+> C. Liu, H. Siew, H.-X. Jiang, Y. Mizuno, and T. Zhu, *Signature of iron line profile from a Kerr-like wormhole*, **Astronomy & Astrophysics** (2026), DOI: 10.1051/0004-6361/202557027.
 
-Citation: If you use this model in your research, please cite the forthcoming paper (link and DOI will be provided here once available).
+This work builds upon the YNOGK framework (Yang & Wang 2012) and the iron-line fitting approach of Mummery & Ingram (2024). We also gratefully acknowledge Andrew Mummery for his invaluable guidance and correspondence during the development of this work.
 
-This work builds upon the YNOGK framework (Yang & Wang 2012) and the iron line fitting approach of Mummery & Ingram (2024); special thanks to Andrew Mummery for his invaluable guidance via correspondence.
